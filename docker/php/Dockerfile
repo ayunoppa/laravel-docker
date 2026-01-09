@@ -19,8 +19,5 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
   && apt-get update && apt-get install -y nodejs \
   && rm -rf /var/lib/apt/lists/*
 
-# User (ホスト権限問題の軽減。必要ならUID/GIDを合わせて調整)
-RUN useradd -m -u 1000 laravel
-USER laravel
-
+# Set working directory
 WORKDIR /var/www/html
